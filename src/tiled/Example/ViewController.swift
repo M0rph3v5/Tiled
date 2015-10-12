@@ -18,6 +18,11 @@ class ViewController: UIViewController, TilingScrollViewDataSource {
     tilingScrollView.dataSource = self
     tilingScrollView.tileSize = CGSize(width: 256, height: 256)
     
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    
     tilingScrollView.levelsOfDetail = 4
     tilingScrollView.imageSize = CGSize(width: 3600, height: 2400)
   }
@@ -30,10 +35,10 @@ class ViewController: UIViewController, TilingScrollViewDataSource {
 
   func tilingScrollView(tilingScrollView: TilingScrollView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage? {
     let scale = Int(scale * 1000)
+    print("col \(column) row \(row) scale \(scale)")
     if let image = UIImage(named: "CuriousFrog_\(scale)_\(column)_\(row)") {
       return image
     }
-    print("col \(column) row \(row) scale \(scale)")
     return nil
   }
 }

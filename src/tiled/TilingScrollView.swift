@@ -101,7 +101,8 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
     let xScale = boundsSize.width / tilingViewSize.width
     let yScale = boundsSize.height / tilingViewSize.height
     
-    let maxScale:CGFloat = 1.0 // / UIScreen.mainScreen().scale
+    // TODO: make retina limit an option
+    let maxScale = 1.0 / UIScreen.mainScreen().scale
     var minScale = min(xScale, yScale)
     if minScale > maxScale {
       minScale = maxScale
