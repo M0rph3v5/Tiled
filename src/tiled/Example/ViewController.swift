@@ -14,14 +14,13 @@ class ViewController: UIViewController, TilingScrollViewDataSource {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
 
+    tilingScrollView.dataSource = self
   }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
 
-    tilingScrollView.dataSource = self
   }
 
   override func didReceiveMemoryWarning() {
@@ -32,7 +31,7 @@ class ViewController: UIViewController, TilingScrollViewDataSource {
 
   func tilingScrollView(tilingScrollView: TilingScrollView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage? {
     let scale = Int(scale * 1000)
-    print("col \(column) row \(row) scale \(scale)")
+//    print("col \(column) row \(row) scale \(scale)")
     if let image = UIImage(named: "CuriousFrog_\(scale)_\(column)_\(row)") {
       return image
     }

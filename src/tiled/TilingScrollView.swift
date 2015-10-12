@@ -34,8 +34,6 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
   
   var dataSource: TilingScrollViewDataSource? {
     didSet {
-      tilingView.dataSource = self
-      
       guard let d = dataSource else { return }
       tileSize = d.sizeOfTilesInTilingScrollView(self)
       levelsOfDetail = d.numberOfDetailLevelsInTilingScrollView(self)
@@ -95,6 +93,7 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
     addSubview(imageView)
     
     tilingView = TilingView(frame: bounds);
+    tilingView.dataSource = self
     imageView.addSubview(tilingView)
   }
   
@@ -102,7 +101,8 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
 
   func setMaxMinZoomScalesForCurrentBounds() {
     let tilingViewSize = tilingView.bounds.size
-    print(tilingViewSize)
+    
+    print(bounds)
     
     let boundsSize = CGSize(
       width: CGRectGetWidth(bounds) - (contentInset.left + contentInset.right),
@@ -211,16 +211,16 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
     contentInset = UIEdgeInsetsMake(top, left, top, left)
 
   }
-
-  override var frame: CGRect { // might need bounds override with same methods
+  
+  override var bounds: CGRect {
     willSet {
-      if !CGSizeEqualToSize(frame.size, frame.size) {
+      if !CGSizeEqualToSize(newValue.size, frame.size) {
         prepareToResize()
       }
     }
     
     didSet {
-      if !CGSizeEqualToSize(frame.size, frame.size) {
+      if !CGSizeEqualToSize(oldValue.size, frame.size) {
         recoverFromResizing()
       }
     }
