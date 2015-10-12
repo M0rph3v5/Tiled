@@ -10,6 +10,9 @@ import UIKit
 
 protocol TilingScrollViewDataSource {
   func tilingScrollView(tilingScrollView: TilingScrollView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage?
+  func numberOfDetailLevelsInTilingScrollView(tilingScrollView: TilingScrollView) -> Int
+  func fullSizeOfImageInTilingScrollView(tilingScrollView: TilingScrollView) -> CGSize
+  func sizeOfTilesInTilingScrollView(tilingScrollView: TilingScrollView) -> CGSize
 }
 
 class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource {
@@ -32,20 +35,25 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
   var dataSource: TilingScrollViewDataSource? {
     didSet {
       tilingView.dataSource = self
+      
+      guard let d = dataSource else { return }
+      tileSize = d.sizeOfTilesInTilingScrollView(self)
+      levelsOfDetail = d.numberOfDetailLevelsInTilingScrollView(self)
+      imageSize = d.fullSizeOfImageInTilingScrollView(self)
     }
   }
   
-  var tileSize: CGSize = CGSizeZero {
+  private var tileSize: CGSize = CGSizeZero {
     didSet {
       tilingView.tileSize = tileSize
     }
   }
-  var levelsOfDetail: Int = 0 {
+  private var levelsOfDetail: Int = 0 {
     didSet {
       tilingView.levelsOfDetail = levelsOfDetail
     }
   }
-  var imageSize: CGSize! {
+  private var imageSize: CGSize! {
     didSet {
       zoomScale = 1
       
@@ -94,6 +102,8 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
 
   func setMaxMinZoomScalesForCurrentBounds() {
     let tilingViewSize = tilingView.bounds.size
+    print(tilingViewSize)
+    
     let boundsSize = CGSize(
       width: CGRectGetWidth(bounds) - (contentInset.left + contentInset.right),
       height: CGRectGetHeight(bounds) - (contentInset.top + contentInset.bottom))

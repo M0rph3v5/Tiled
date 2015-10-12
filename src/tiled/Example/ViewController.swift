@@ -15,16 +15,13 @@ class ViewController: UIViewController, TilingScrollViewDataSource {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    tilingScrollView.dataSource = self
-    tilingScrollView.tileSize = CGSize(width: 256, height: 256)
-    
+
   }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
-    
-    tilingScrollView.levelsOfDetail = 4
-    tilingScrollView.imageSize = CGSize(width: 3600, height: 2400)
+
+    tilingScrollView.dataSource = self
   }
 
   override func didReceiveMemoryWarning() {
@@ -40,6 +37,18 @@ class ViewController: UIViewController, TilingScrollViewDataSource {
       return image
     }
     return nil
+  }
+  
+  func numberOfDetailLevelsInTilingScrollView(tilingScrollView: TilingScrollView) -> Int {
+    return 4
+  }
+  
+  func fullSizeOfImageInTilingScrollView(tilingScrollView: TilingScrollView) -> CGSize {
+    return CGSize(width: 3600, height: 2400)
+  }
+  
+  func sizeOfTilesInTilingScrollView(tilingScrollView: TilingScrollView) -> CGSize {
+    return CGSize(width: 256, height: 256)
   }
 }
 
