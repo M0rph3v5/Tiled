@@ -4,11 +4,16 @@ PODS:
   - Tiled/Core (0.1.0)
 
 DEPENDENCIES:
-  - Tiled (from `../..`)
+  - Tiled (from `https://github.com/M0rph3v5/Tiled.git`)
 
 EXTERNAL SOURCES:
   Tiled:
-    :path: ../..
+    :git: https://github.com/M0rph3v5/Tiled.git
+
+CHECKOUT OPTIONS:
+  Tiled:
+    :commit: 55553ff8a2b2a7a85d702648e179062c4e6605d4
+    :git: https://github.com/M0rph3v5/Tiled.git
 
 SPEC CHECKSUMS:
   Tiled: 813f553c0b6ac17ef0779e415b3dfe1a319d4ba9
