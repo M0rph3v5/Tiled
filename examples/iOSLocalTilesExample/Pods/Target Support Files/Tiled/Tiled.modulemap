@@ -1,6 +1,0 @@
-framework module Tiled {
-  umbrella header "Tiled-umbrella.h"
-
-  export *
-  module * { export * }
-}
