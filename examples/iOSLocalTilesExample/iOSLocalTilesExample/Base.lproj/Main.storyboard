@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tiled" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iOSLocalTilesExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0a-UX-QTC" customClass="TilingScrollView" customModule="tiled" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vg-9D-VGN" customClass="TilingScrollView" customModule="Tiled">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </scrollView>
@@ -24,19 +24,19 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="B0a-UX-QTC" secondAttribute="bottom" id="7IR-0q-GtO"/>
-                            <constraint firstAttribute="trailing" secondItem="B0a-UX-QTC" secondAttribute="trailing" id="TSx-aj-iNq"/>
-                            <constraint firstItem="B0a-UX-QTC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rCu-5v-KKo"/>
-                            <constraint firstItem="B0a-UX-QTC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="v5k-Pq-l7O"/>
+                            <constraint firstItem="8vg-9D-VGN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="HEs-5M-zxt"/>
+                            <constraint firstAttribute="trailing" secondItem="8vg-9D-VGN" secondAttribute="trailing" id="P7m-Aa-eEq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8vg-9D-VGN" secondAttribute="bottom" id="Xi4-M4-HTf"/>
+                            <constraint firstItem="8vg-9D-VGN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zLn-JE-GqI"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tilingScrollView" destination="B0a-UX-QTC" id="54F-yj-fGJ"/>
+                        <outlet property="tilingScrollView" destination="8vg-9D-VGN" id="To6-bQ-C08"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="880" y="670"/>
+            <point key="canvasLocation" x="302" y="429"/>
         </scene>
     </scenes>
 </document>

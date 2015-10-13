@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  tiled
+//  iOSLocalTilesExample
 //
-//  Created by Benjamin de Jager on 12/10/15.
+//  Created by Benjamin de Jager on 13/10/15.
 //  Copyright © 2015 Benjamin de Jager. All rights reserved.
 //
 

@@ -7,20 +7,21 @@
 //
 
 import UIKit
+import Tiled
 
 class ViewController: UIViewController, TilingScrollViewDataSource {
-
+  
   @IBOutlet weak var tilingScrollView: TilingScrollView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     tilingScrollView.dataSource = self
     tilingScrollView.imageView.image = UIImage(named: "CuriousFrog_Placeholder")
   }
   
   // MARK: TilingScrollView Datasource
-
+  
   func tilingScrollView(tilingScrollView: TilingScrollView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage? {
     let scale = Int(scale * 1000)
     if let image = UIImage(named: "CuriousFrog_\(scale)_\(column)_\(row)") {
