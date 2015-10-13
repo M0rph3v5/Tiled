@@ -28,7 +28,7 @@ class ViewController: UIViewController {
   func tapRecognized(recognizer: UITapGestureRecognizer) {
     guard recognizer.numberOfTapsRequired == 2 else { return }
 
-    let location = recognizer.locationInView(tilingScrollView.tilingView)
+    let location = recognizer.locationInView(tilingScrollView.imageView)
     let zoomSize = CGSize(width: 200, height: 200)
     let origin = CGPoint(x:location.x - zoomSize.width/2, y: location.y - zoomSize.height/2)
     let zoomRect = CGRect(origin: origin, size: zoomSize)

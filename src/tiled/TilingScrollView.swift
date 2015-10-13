@@ -21,7 +21,7 @@ public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDat
   private var scaleToRestoreAfterResize: CGFloat!
   
   private var delegateProxy = DelegateProxy()
-  public private (set) var tilingView: TilingView! // actual tiling view
+  private var tilingView: TilingView! // actual tiling view
   
 //  override var delegate: UIScrollViewDelegate? {
 //    get {
