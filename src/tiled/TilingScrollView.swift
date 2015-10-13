@@ -21,7 +21,7 @@ public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDat
   private var scaleToRestoreAfterResize: CGFloat!
   
   private var delegateProxy = DelegateProxy()
-  private var tilingView: TilingView! // actual tiling view
+  public private (set) var tilingView: TilingView! // actual tiling view
   
 //  override var delegate: UIScrollViewDelegate? {
 //    get {
@@ -131,14 +131,14 @@ public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDat
       y: horizontalOnly ? contentOffset.y : contentSize.height/2 - frame.height/2), animated: animated)
   }
   
-  func zoomToRect(zoomRect: CGRect, zoomOutWhenZoomedIn:Bool, animated: Bool) {
+  public func zoomToRect(zoomRect: CGRect, zoomOutWhenZoomedIn: Bool, animated: Bool) {
     guard tilingView.bounds.intersects(zoomRect) else { return }
       
     let zoomScaleX = (bounds.size.width - contentInset.left - contentInset.right) / zoomRect.size.width
     let zoomScaleY = (bounds.size.height - contentInset.top - contentInset.bottom) / zoomRect.size.height
     let zoomScale = min(maximumZoomScale, min(zoomScaleX, zoomScaleY))
 
-    if !zoomOutWhenZoomedIn || fabs(zoomScale - zoomScale) > fabs(zoomScale - minimumZoomScale) {
+    if !zoomOutWhenZoomedIn || fabs(self.zoomScale - zoomScale) > fabs(self.zoomScale - minimumZoomScale) {
       zoomToRect(zoomRect, animated: true)
     } else {
       setZoomScale(minimumZoomScale, animated: true)
@@ -161,8 +161,7 @@ public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDat
     setMaxMinZoomScalesForCurrentBounds()
     
     let maxZoomScale = max(minimumZoomScale, scaleToRestoreAfterResize)
-    let zoomScale = min(maximumZoomScale, maxZoomScale)
-    self.zoomScale = zoomScale
+    self.zoomScale = min(maximumZoomScale, maxZoomScale)
     
     let boundsCenter = convertPoint(pointToCenterAfterResize, toView: imageView)
     var offset = CGPoint(
