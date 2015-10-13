@@ -16,6 +16,7 @@ class ViewController: UIViewController, TilingScrollViewDataSource {
     super.viewDidLoad()
 
     tilingScrollView.dataSource = self
+    tilingScrollView.imageView.image = UIImage(named: "CuriousFrog_Placeholder")
   }
   
   override func viewDidAppear(animated: Bool) {
