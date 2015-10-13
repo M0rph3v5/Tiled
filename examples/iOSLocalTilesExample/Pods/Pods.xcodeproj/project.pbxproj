@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		53DE3A48F17D62DB61866832595CBA01 /* PBXContainerItemProxy */ = {
+		B1251D0DF4EB22B44DEFF88AD4D6FAF4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -77,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		367CD4288A3D6EB8FBC3536832C8B65A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				97836FF4D1EEC7F4316BDAA626A6F526 /* Tiled */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		421DD680B8A26883F9E2EBC5EAFA2D44 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,17 +98,6 @@
 			);
 			name = "Support Files";
 			path = "examples/iOSLocalTilesExample/Pods/Target Support Files/Tiled";
-			sourceTree = "<group>";
-		};
-		50778E563472D239A745FA680475FEB0 /* tiled */ = {
-			isa = PBXGroup;
-			children = (
-				BAA7DBE2C6D612A0E6BA3C9BE0591A11 /* DelegateProxy.swift */,
-				D53713D88D5973A0ED0AFE65591C69AE /* TilingImageView.swift */,
-				90BEA4870CED38310C6E8AABE1DD0B96 /* TilingScrollView.swift */,
-				052B07D777B6B5CCB501C9EDAFD81997 /* TilingView.swift */,
-			);
-			path = tiled;
 			sourceTree = "<group>";
 		};
 		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
@@ -150,6 +147,17 @@
 			path = ../../..;
 			sourceTree = "<group>";
 		};
+		97836FF4D1EEC7F4316BDAA626A6F526 /* Tiled */ = {
+			isa = PBXGroup;
+			children = (
+				BAA7DBE2C6D612A0E6BA3C9BE0591A11 /* DelegateProxy.swift */,
+				D53713D88D5973A0ED0AFE65591C69AE /* TilingImageView.swift */,
+				90BEA4870CED38310C6E8AABE1DD0B96 /* TilingScrollView.swift */,
+				052B07D777B6B5CCB501C9EDAFD81997 /* TilingView.swift */,
+			);
+			path = Tiled;
+			sourceTree = "<group>";
+		};
 		B7B80995527643776607AFFA75B91E24 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,18 +191,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DF29C0A39927DE045F152A7FAFA35F02 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				50778E563472D239A745FA680475FEB0 /* tiled */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		F9DB0A8A10F18DD937767D3C608D0FD5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				DF29C0A39927DE045F152A7FAFA35F02 /* src */,
+				367CD4288A3D6EB8FBC3536832C8B65A /* src */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				CA8011C56B993905D24179EE4E859A94 /* PBXTargetDependency */,
+				69D2B851C7C295144405CF51FC286A71 /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
@@ -307,11 +307,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CA8011C56B993905D24179EE4E859A94 /* PBXTargetDependency */ = {
+		69D2B851C7C295144405CF51FC286A71 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Tiled;
 			target = 35D6B951F6240D800ABFBD2049EF9B2C /* Tiled */;
-			targetProxy = 53DE3A48F17D62DB61866832595CBA01 /* PBXContainerItemProxy */;
+			targetProxy = B1251D0DF4EB22B44DEFF88AD4D6FAF4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
