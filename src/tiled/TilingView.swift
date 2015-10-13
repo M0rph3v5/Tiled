@@ -9,27 +9,27 @@
 import UIKit
 import QuartzCore
 
-protocol TilingViewDataSource {
+public protocol TilingViewDataSource {
   func tilingView(tilingView: TilingView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage?
 }
 
-class TilingView: UIView {
+public class TilingView: UIView {
   
-  var dataSource : TilingViewDataSource!
-  var levelsOfDetail : Int = 0 {
+  public var dataSource : TilingViewDataSource!
+  public var levelsOfDetail : Int = 0 {
     didSet {
       let tiledLayer = self.layer as! CATiledLayer
       tiledLayer.levelsOfDetail = levelsOfDetail
     }
   }
-  var tileSize : CGSize = CGSizeZero {
+  public var tileSize : CGSize = CGSizeZero {
     didSet {
       let tiledLayer = self.layer as! CATiledLayer
       tiledLayer.tileSize = tileSize
     }
   }
   
-  required init?(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
   
@@ -41,7 +41,7 @@ class TilingView: UIView {
   
   // MARK: overrides
   
-  override func drawRect(rect: CGRect) {
+  override public func drawRect(rect: CGRect) {
     
     let context = UIGraphicsGetCurrentContext()
     
@@ -86,11 +86,11 @@ class TilingView: UIView {
     
   }
   
-  override class func layerClass() -> AnyClass {
+  override public class func layerClass() -> AnyClass {
     return CATiledLayer.self
   }
   
-  override var contentScaleFactor : CGFloat {
+  override public var contentScaleFactor : CGFloat {
     didSet {
       super.contentScaleFactor = 1
     }

@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol TilingScrollViewDataSource {
+public protocol TilingScrollViewDataSource {
   func tilingScrollView(tilingScrollView: TilingScrollView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage?
   func numberOfDetailLevelsInTilingScrollView(tilingScrollView: TilingScrollView) -> Int
   func fullSizeOfImageInTilingScrollView(tilingScrollView: TilingScrollView) -> CGSize
   func sizeOfTilesInTilingScrollView(tilingScrollView: TilingScrollView) -> CGSize
 }
 
-class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource {
+public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource {
   
   private var pointToCenterAfterResize: CGPoint!
   private var scaleToRestoreAfterResize: CGFloat!
@@ -32,7 +32,7 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
 //    }
 //  }
   
-  var dataSource: TilingScrollViewDataSource? {
+  public var dataSource: TilingScrollViewDataSource? {
     didSet {
       guard let d = dataSource else { return }
       tileSize = d.sizeOfTilesInTilingScrollView(self)
@@ -65,7 +65,7 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
     }
   }
   
-  var imageView: TilingImageView! // hold thumbnail
+  public var imageView: TilingImageView! // hold thumbnail
   
   var fillMode: Bool = false
   var widthIsCropped: Bool = false
@@ -76,7 +76,7 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
     }
   }
   
-  required init?(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     initialize()
   }
@@ -191,11 +191,11 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
   }
   
   // MARK: scrollview delegate methods
-  func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+  public func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
     return imageView
   }
   
-  func scrollViewDidZoom(scrollView: UIScrollView) {
+  public func scrollViewDidZoom(scrollView: UIScrollView) {
     
     var top:CGFloat = 0, left:CGFloat = 0
     if (contentSize.width < bounds.size.width) {
@@ -208,7 +208,7 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
 
   }
   
-  override var bounds: CGRect {
+  override public var bounds: CGRect {
     willSet {
       if !CGSizeEqualToSize(newValue.size, bounds.size) {
         prepareToResize()
@@ -224,7 +224,7 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
 
   // MARK: tilingview data source
   
-  func tilingView(tilingView: TilingView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage? {
+  public func tilingView(tilingView: TilingView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage? {
     return dataSource?.tilingScrollView(self, imageForColumn: column, andRow: row, forScale: scale)
   }
 }
