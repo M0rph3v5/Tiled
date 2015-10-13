@@ -22,14 +22,14 @@ public class TilingImageView: UIImageView {
     didSet {
       let urlSession = NSURLSession()
       urlSession.dataTaskWithURL(thumbUrl) { (data, response, error) in
-        if error != nil {
+        guard error != nil else {
           print("failed fetching thumb")
-        } else {
-          self.contentMode = UIViewContentMode.ScaleAspectFit
-          self.image = UIImage(data: data!)
+          return
         }
+
+        self.contentMode = UIViewContentMode.ScaleAspectFit
+        self.image = UIImage(data: data!)
       }
     }
   }
-
 }

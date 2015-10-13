@@ -101,7 +101,7 @@ public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDat
 
   func setMaxMinZoomScalesForCurrentBounds() {
     let tilingViewSize = tilingView.bounds.size
-    
+
     let boundsSize = bounds.size
     
     let xScale = boundsSize.width / tilingViewSize.width
@@ -127,22 +127,21 @@ public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDat
   
   func centerAnimated(animated: Bool, horizontalOnly: Bool) {
     setContentOffset(CGPoint(
-      x: contentSize.width/2 - CGRectGetWidth(frame)/2,
-      y: horizontalOnly ? contentOffset.y : contentSize.height/2 - CGRectGetHeight(frame)/2), animated: animated)
+      x: contentSize.width/2 - frame.width/2,
+      y: horizontalOnly ? contentOffset.y : contentSize.height/2 - frame.height/2), animated: animated)
   }
   
   func zoomToRect(zoomRect: CGRect, zoomOutWhenZoomedIn:Bool, animated: Bool) {
-    if CGRectIntersectsRect(tilingView.bounds, zoomRect) {
+    guard tilingView.bounds.intersects(zoomRect) else { return }
       
-      let zoomScaleX = (bounds.size.width - contentInset.left - contentInset.right) / zoomRect.size.width
-      let zoomScaleY = (bounds.size.height - contentInset.top - contentInset.bottom) / zoomRect.size.height
-      let zoomScale = min(maximumZoomScale, min(zoomScaleX, zoomScaleY))
-      
-      if !zoomOutWhenZoomedIn || fabs(zoomScale - zoomScale) > fabs(zoomScale - minimumZoomScale) {
-        zoomToRect(zoomRect, animated: true)
-      } else {
-        setZoomScale(minimumZoomScale, animated: true)
-      }
+    let zoomScaleX = (bounds.size.width - contentInset.left - contentInset.right) / zoomRect.size.width
+    let zoomScaleY = (bounds.size.height - contentInset.top - contentInset.bottom) / zoomRect.size.height
+    let zoomScale = min(maximumZoomScale, min(zoomScaleX, zoomScaleY))
+
+    if !zoomOutWhenZoomedIn || fabs(zoomScale - zoomScale) > fabs(zoomScale - minimumZoomScale) {
+      zoomToRect(zoomRect, animated: true)
+    } else {
+      setZoomScale(minimumZoomScale, animated: true)
     }
   }
   
@@ -204,19 +203,19 @@ public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDat
     if (contentSize.height < bounds.size.height) {
       top = (bounds.size.height-contentSize.height) * 0.5
     }
-    contentInset = UIEdgeInsetsMake(top, left, top, left)
 
+    contentInset = UIEdgeInsets(top: top, left: left, bottom: top, right: left)
   }
   
   override public var bounds: CGRect {
     willSet {
-      if !CGSizeEqualToSize(newValue.size, bounds.size) {
+      if newValue.size != bounds.size {
         prepareToResize()
       }
     }
     
     didSet {
-      if !CGSizeEqualToSize(oldValue.size, bounds.size) {
+      if oldValue.size != bounds.size {
         recoverFromResizing()
       }
     }
@@ -228,7 +227,3 @@ public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDat
     return dataSource?.tilingScrollView(self, imageForColumn: column, andRow: row, forScale: scale)
   }
 }
-
-
-
-
