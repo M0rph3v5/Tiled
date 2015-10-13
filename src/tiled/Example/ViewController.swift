@@ -19,20 +19,10 @@ class ViewController: UIViewController, TilingScrollViewDataSource {
     tilingScrollView.imageView.image = UIImage(named: "CuriousFrog_Placeholder")
   }
   
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
-
-  }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-  }
-  
   // MARK: TilingScrollView Datasource
 
   func tilingScrollView(tilingScrollView: TilingScrollView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage? {
     let scale = Int(scale * 1000)
-//    print("col \(column) row \(row) scale \(scale)")
     if let image = UIImage(named: "CuriousFrog_\(scale)_\(column)_\(row)") {
       return image
     }
