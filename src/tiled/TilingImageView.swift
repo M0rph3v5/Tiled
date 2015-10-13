@@ -8,13 +8,13 @@
 
 import UIKit
 
-class TilingImageView: UIImageView {
+public class TilingImageView: UIImageView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
   }
 
-  required init?(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
   }
   
@@ -22,14 +22,14 @@ class TilingImageView: UIImageView {
     didSet {
       let urlSession = NSURLSession()
       urlSession.dataTaskWithURL(thumbUrl) { (data, response, error) in
-        if error != nil {
+        guard error != nil else {
           print("failed fetching thumb")
-        } else {
-          self.contentMode = UIViewContentMode.ScaleAspectFit
-          self.image = UIImage(data: data!)
+          return
         }
+
+        self.contentMode = UIViewContentMode.ScaleAspectFit
+        self.image = UIImage(data: data!)
       }
     }
   }
-
 }

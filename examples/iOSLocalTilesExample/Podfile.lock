@@ -4,11 +4,11 @@ PODS:
   - Tiled/Core (0.1.0)
 
 DEPENDENCIES:
-  - Tiled (from `/Users/m0rph3v5/Documents/Projects/tiled`)
+  - Tiled (from `../..`)
 
 EXTERNAL SOURCES:
   Tiled:
-    :path: "/Users/m0rph3v5/Documents/Projects/tiled"
+    :path: ../..
 
 SPEC CHECKSUMS:
   Tiled: 813f553c0b6ac17ef0779e415b3dfe1a319d4ba9

@@ -8,20 +8,20 @@
 
 import UIKit
 
-protocol TilingScrollViewDataSource {
+public protocol TilingScrollViewDataSource {
   func tilingScrollView(tilingScrollView: TilingScrollView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage?
   func numberOfDetailLevelsInTilingScrollView(tilingScrollView: TilingScrollView) -> Int
   func fullSizeOfImageInTilingScrollView(tilingScrollView: TilingScrollView) -> CGSize
   func sizeOfTilesInTilingScrollView(tilingScrollView: TilingScrollView) -> CGSize
 }
 
-class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource {
+public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource {
   
   private var pointToCenterAfterResize: CGPoint!
   private var scaleToRestoreAfterResize: CGFloat!
   
   private var delegateProxy = DelegateProxy()
-  private var tilingView: TilingView! // actual tiling view
+  public private (set) var tilingView: TilingView! // actual tiling view
   
 //  override var delegate: UIScrollViewDelegate? {
 //    get {
@@ -32,7 +32,7 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
 //    }
 //  }
   
-  var dataSource: TilingScrollViewDataSource? {
+  public var dataSource: TilingScrollViewDataSource? {
     didSet {
       guard let d = dataSource else { return }
       tileSize = d.sizeOfTilesInTilingScrollView(self)
@@ -65,7 +65,7 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
     }
   }
   
-  var imageView: TilingImageView! // hold thumbnail
+  public var imageView: TilingImageView! // hold thumbnail
   
   var fillMode: Bool = false
   var widthIsCropped: Bool = false
@@ -76,7 +76,7 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
     }
   }
   
-  required init?(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     initialize()
   }
@@ -101,7 +101,7 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
 
   func setMaxMinZoomScalesForCurrentBounds() {
     let tilingViewSize = tilingView.bounds.size
-    
+
     let boundsSize = bounds.size
     
     let xScale = boundsSize.width / tilingViewSize.width
@@ -127,22 +127,21 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
   
   func centerAnimated(animated: Bool, horizontalOnly: Bool) {
     setContentOffset(CGPoint(
-      x: contentSize.width/2 - CGRectGetWidth(frame)/2,
-      y: horizontalOnly ? contentOffset.y : contentSize.height/2 - CGRectGetHeight(frame)/2), animated: animated)
+      x: contentSize.width/2 - frame.width/2,
+      y: horizontalOnly ? contentOffset.y : contentSize.height/2 - frame.height/2), animated: animated)
   }
   
-  func zoomToRect(zoomRect: CGRect, zoomOutWhenZoomedIn:Bool, animated: Bool) {
-    if CGRectIntersectsRect(tilingView.bounds, zoomRect) {
+  public func zoomToRect(zoomRect: CGRect, zoomOutWhenZoomedIn: Bool, animated: Bool) {
+    guard tilingView.bounds.intersects(zoomRect) else { return }
       
-      let zoomScaleX = (bounds.size.width - contentInset.left - contentInset.right) / zoomRect.size.width
-      let zoomScaleY = (bounds.size.height - contentInset.top - contentInset.bottom) / zoomRect.size.height
-      let zoomScale = min(maximumZoomScale, min(zoomScaleX, zoomScaleY))
-      
-      if !zoomOutWhenZoomedIn || fabs(zoomScale - zoomScale) > fabs(zoomScale - minimumZoomScale) {
-        zoomToRect(zoomRect, animated: true)
-      } else {
-        setZoomScale(minimumZoomScale, animated: true)
-      }
+    let zoomScaleX = (bounds.size.width - contentInset.left - contentInset.right) / zoomRect.size.width
+    let zoomScaleY = (bounds.size.height - contentInset.top - contentInset.bottom) / zoomRect.size.height
+    let zoomScale = min(maximumZoomScale, min(zoomScaleX, zoomScaleY))
+
+    if !zoomOutWhenZoomedIn || fabs(self.zoomScale - zoomScale) > fabs(self.zoomScale - minimumZoomScale) {
+      zoomToRect(zoomRect, animated: true)
+    } else {
+      setZoomScale(minimumZoomScale, animated: true)
     }
   }
   
@@ -162,8 +161,7 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
     setMaxMinZoomScalesForCurrentBounds()
     
     let maxZoomScale = max(minimumZoomScale, scaleToRestoreAfterResize)
-    let zoomScale = min(maximumZoomScale, maxZoomScale)
-    self.zoomScale = zoomScale
+    self.zoomScale = min(maximumZoomScale, maxZoomScale)
     
     let boundsCenter = convertPoint(pointToCenterAfterResize, toView: imageView)
     var offset = CGPoint(
@@ -191,11 +189,11 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
   }
   
   // MARK: scrollview delegate methods
-  func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+  public func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
     return imageView
   }
   
-  func scrollViewDidZoom(scrollView: UIScrollView) {
+  public func scrollViewDidZoom(scrollView: UIScrollView) {
     
     var top:CGFloat = 0, left:CGFloat = 0
     if (contentSize.width < bounds.size.width) {
@@ -204,19 +202,19 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
     if (contentSize.height < bounds.size.height) {
       top = (bounds.size.height-contentSize.height) * 0.5
     }
-    contentInset = UIEdgeInsetsMake(top, left, top, left)
 
+    contentInset = UIEdgeInsets(top: top, left: left, bottom: top, right: left)
   }
   
-  override var bounds: CGRect {
+  override public var bounds: CGRect {
     willSet {
-      if !CGSizeEqualToSize(newValue.size, bounds.size) {
+      if newValue.size != bounds.size {
         prepareToResize()
       }
     }
     
     didSet {
-      if !CGSizeEqualToSize(oldValue.size, bounds.size) {
+      if oldValue.size != bounds.size {
         recoverFromResizing()
       }
     }
@@ -224,11 +222,7 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
 
   // MARK: tilingview data source
   
-  func tilingView(tilingView: TilingView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage? {
+  public func tilingView(tilingView: TilingView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage? {
     return dataSource?.tilingScrollView(self, imageForColumn: column, andRow: row, forScale: scale)
   }
 }
-
-
-
-
