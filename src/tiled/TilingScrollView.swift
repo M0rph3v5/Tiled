@@ -102,11 +102,7 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
   func setMaxMinZoomScalesForCurrentBounds() {
     let tilingViewSize = tilingView.bounds.size
     
-    print(bounds)
-    
-    let boundsSize = CGSize(
-      width: CGRectGetWidth(bounds) - (contentInset.left + contentInset.right),
-      height: CGRectGetHeight(bounds) - (contentInset.top + contentInset.bottom))
+    let boundsSize = bounds.size
     
     let xScale = boundsSize.width / tilingViewSize.width
     let yScale = boundsSize.height / tilingViewSize.height
@@ -214,13 +210,13 @@ class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource
   
   override var bounds: CGRect {
     willSet {
-      if !CGSizeEqualToSize(newValue.size, frame.size) {
+      if !CGSizeEqualToSize(newValue.size, bounds.size) {
         prepareToResize()
       }
     }
     
     didSet {
-      if !CGSizeEqualToSize(oldValue.size, frame.size) {
+      if !CGSizeEqualToSize(oldValue.size, bounds.size) {
         recoverFromResizing()
       }
     }
