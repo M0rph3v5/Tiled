@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5B032324106B68BA1CBCF6A1BA26E183 /* PBXContainerItemProxy */ = {
+		53DE3A48F17D62DB61866832595CBA01 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -32,9 +32,11 @@
 /* Begin PBXFileReference section */
 		052B07D777B6B5CCB501C9EDAFD81997 /* TilingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TilingView.swift; sourceTree = "<group>"; };
 		08037EB64217AF4D536AC494CAB448AC /* Tiled-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Tiled-dummy.m"; sourceTree = "<group>"; };
+		2E713F77D5BD5230541FC8F1897C5E86 /* Tiled.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Tiled.modulemap; sourceTree = "<group>"; };
 		3109E8EB00A5593261428C49856A7AA7 /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
-		3C1C989305DC8E3F93ED166597FB6204 /* Tiled.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Tiled.modulemap; sourceTree = "<group>"; };
+		3340CB15D4B622D6989E0C87EBA9FEF3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		545464E7F6C25986698072280A28D77D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54DDC14B76F564541DC510F2255606F9 /* Tiled.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Tiled.xcconfig; sourceTree = "<group>"; };
 		5576F2266B2BAE62AF0EF59299634906 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
 		79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
 		7CC2CDC0078BD91393068A192163987B /* Tiled-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Tiled-Private.xcconfig"; sourceTree = "<group>"; };
@@ -42,12 +44,10 @@
 		90BEA4870CED38310C6E8AABE1DD0B96 /* TilingScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TilingScrollView.swift; sourceTree = "<group>"; };
 		9258F397A98653435EC335EC03C7FE51 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
 		94810964B3289E6BF56FB96F13DB8893 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		B05E984255B2E891C3AD8D784B9BA518 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B321915A656258100E234FE6C3576BA1 /* Tiled-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Tiled-prefix.pch"; sourceTree = "<group>"; };
-		B4B786B084A81017AD56D74390EE86DE /* Tiled.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Tiled.xcconfig; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BAA7DBE2C6D612A0E6BA3C9BE0591A11 /* DelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DelegateProxy.swift; sourceTree = "<group>"; };
 		BD737EF9CEA5398A94F9EBC0ACCEFCBB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		BED330A4212C73C1E0CDFA6087DAA710 /* Tiled-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Tiled-prefix.pch"; sourceTree = "<group>"; };
 		CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
 		D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D3AF7151AB093310040882A6C4F42307 /* Tiled-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Tiled-umbrella.h"; sourceTree = "<group>"; };
@@ -77,7 +77,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		44303032C23F4F8F768035AB4FA419E0 /* Tiled */ = {
+		421DD680B8A26883F9E2EBC5EAFA2D44 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3340CB15D4B622D6989E0C87EBA9FEF3 /* Info.plist */,
+				2E713F77D5BD5230541FC8F1897C5E86 /* Tiled.modulemap */,
+				54DDC14B76F564541DC510F2255606F9 /* Tiled.xcconfig */,
+				7CC2CDC0078BD91393068A192163987B /* Tiled-Private.xcconfig */,
+				08037EB64217AF4D536AC494CAB448AC /* Tiled-dummy.m */,
+				BED330A4212C73C1E0CDFA6087DAA710 /* Tiled-prefix.pch */,
+				D3AF7151AB093310040882A6C4F42307 /* Tiled-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "examples/iOSLocalTilesExample/Pods/Target Support Files/Tiled";
+			sourceTree = "<group>";
+		};
+		50778E563472D239A745FA680475FEB0 /* tiled */ = {
 			isa = PBXGroup;
 			children = (
 				BAA7DBE2C6D612A0E6BA3C9BE0591A11 /* DelegateProxy.swift */,
@@ -85,7 +100,7 @@
 				90BEA4870CED38310C6E8AABE1DD0B96 /* TilingScrollView.swift */,
 				052B07D777B6B5CCB501C9EDAFD81997 /* TilingView.swift */,
 			);
-			path = Tiled;
+			path = tiled;
 			sourceTree = "<group>";
 		};
 		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
@@ -94,14 +109,6 @@
 				94810964B3289E6BF56FB96F13DB8893 /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		67AFA0E7436BDC4B362D7A3F24B0CE5A /* src */ = {
-			isa = PBXGroup;
-			children = (
-				44303032C23F4F8F768035AB4FA419E0 /* Tiled */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		75D98FF52E597A11900E131B6C4E1ADA /* Pods */ = {
@@ -126,27 +133,21 @@
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
-				A80B50DE636BC837D814387B0EC8B66B /* Development Pods */,
+				C5AF0046CFB12918CCEF4F2FCF066E00 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
 				B7B80995527643776607AFFA75B91E24 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		A80B50DE636BC837D814387B0EC8B66B /* Development Pods */ = {
+		882F1493B951A4A104EF4429D0FD9CAB /* Tiled */ = {
 			isa = PBXGroup;
 			children = (
-				B97F6DFAC1C29590689531484DACE22E /* Tiled */,
+				F9DB0A8A10F18DD937767D3C608D0FD5 /* Core */,
+				421DD680B8A26883F9E2EBC5EAFA2D44 /* Support Files */,
 			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		ADBAEE6E1EBC780683524C68A5B510EE /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				67AFA0E7436BDC4B362D7A3F24B0CE5A /* src */,
-			);
-			name = Core;
+			name = Tiled;
+			path = ../../..;
 			sourceTree = "<group>";
 		};
 		B7B80995527643776607AFFA75B91E24 /* Targets Support Files */ = {
@@ -157,22 +158,20 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		B97F6DFAC1C29590689531484DACE22E /* Tiled */ = {
-			isa = PBXGroup;
-			children = (
-				ADBAEE6E1EBC780683524C68A5B510EE /* Core */,
-				F4FA11115B84FFA2DEACD13AC9B81F64 /* Support Files */,
-			);
-			name = Tiled;
-			path = /Users/m0rph3v5/Documents/Projects/tiled;
-			sourceTree = "<absolute>";
-		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5AF0046CFB12918CCEF4F2FCF066E00 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				882F1493B951A4A104EF4429D0FD9CAB /* Tiled */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
@@ -184,19 +183,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F4FA11115B84FFA2DEACD13AC9B81F64 /* Support Files */ = {
+		DF29C0A39927DE045F152A7FAFA35F02 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				B05E984255B2E891C3AD8D784B9BA518 /* Info.plist */,
-				3C1C989305DC8E3F93ED166597FB6204 /* Tiled.modulemap */,
-				B4B786B084A81017AD56D74390EE86DE /* Tiled.xcconfig */,
-				7CC2CDC0078BD91393068A192163987B /* Tiled-Private.xcconfig */,
-				08037EB64217AF4D536AC494CAB448AC /* Tiled-dummy.m */,
-				B321915A656258100E234FE6C3576BA1 /* Tiled-prefix.pch */,
-				D3AF7151AB093310040882A6C4F42307 /* Tiled-umbrella.h */,
+				50778E563472D239A745FA680475FEB0 /* tiled */,
 			);
-			name = "Support Files";
-			path = "examples/iOSLocalTilesExample/Pods/Target Support Files/Tiled";
+			path = src;
+			sourceTree = "<group>";
+		};
+		F9DB0A8A10F18DD937767D3C608D0FD5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DF29C0A39927DE045F152A7FAFA35F02 /* src */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,7 +249,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				608E2C8BB8B7C60CDD2DB6200F47B3B5 /* PBXTargetDependency */,
+				CA8011C56B993905D24179EE4E859A94 /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
@@ -307,11 +307,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		608E2C8BB8B7C60CDD2DB6200F47B3B5 /* PBXTargetDependency */ = {
+		CA8011C56B993905D24179EE4E859A94 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Tiled;
 			target = 35D6B951F6240D800ABFBD2049EF9B2C /* Tiled */;
-			targetProxy = 5B032324106B68BA1CBCF6A1BA26E183 /* PBXContainerItemProxy */;
+			targetProxy = 53DE3A48F17D62DB61866832595CBA01 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

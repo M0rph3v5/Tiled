@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A57FE3D88B4480F00BB3513C"
+               BlueprintIdentifier = "AF70C4DA0D450D9C34633E37"
                BuildableName = "Tiled.framework"
                BlueprintName = "Tiled"
                ReferencedContainer = "container:Pods.xcodeproj">
