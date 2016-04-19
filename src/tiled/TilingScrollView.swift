@@ -141,9 +141,9 @@ public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDat
     let zoomScale = min(maximumZoomScale, min(zoomScaleX, zoomScaleY))
 
     if !zoomOutWhenZoomedIn || fabs(self.zoomScale - zoomScale) > fabs(self.zoomScale - minimumZoomScale) {
-      zoomToRect(zoomRect, animated: true)
+      zoomToRect(zoomRect, animated: animated)
     } else {
-      setZoomScale(minimumZoomScale, animated: true)
+      setZoomScale(minimumZoomScale, animated: animated)
     }
   }
   
