@@ -15,6 +15,7 @@ public protocol TilingScrollViewDataSource {
   func sizeOfTilesInTilingScrollView(tilingScrollView: TilingScrollView) -> CGSize
 }
 
+@IBDesignable
 public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDataSource {
   
   private var pointToCenterAfterResize: CGPoint!
@@ -67,7 +68,8 @@ public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDat
   
   public var imageView: TilingImageView! // hold thumbnail
   
-  var fillMode: Bool = false
+  @IBInspectable
+  public var fillMode: Bool = false
   var widthIsCropped: Bool = false
   
   var tilingEnabled: Bool = true {
@@ -139,9 +141,9 @@ public class TilingScrollView: UIScrollView, UIScrollViewDelegate, TilingViewDat
     let zoomScale = min(maximumZoomScale, min(zoomScaleX, zoomScaleY))
 
     if !zoomOutWhenZoomedIn || fabs(self.zoomScale - zoomScale) > fabs(self.zoomScale - minimumZoomScale) {
-      zoomToRect(zoomRect, animated: true)
+      zoomToRect(zoomRect, animated: animated)
     } else {
-      setZoomScale(minimumZoomScale, animated: true)
+      setZoomScale(minimumZoomScale, animated: animated)
     }
   }
   
